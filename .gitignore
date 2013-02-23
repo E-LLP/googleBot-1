@@ -1,0 +1,4 @@
+*.class
+nohup.out
+settings
+words/*
