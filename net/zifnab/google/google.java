@@ -9,6 +9,7 @@ package net.zifnab.google;
 */
 import org.json.JSONObject;
 import org.json.JSONArray;
+import org.apache.commons.lang3.StringEscapeUtils;
 import java.net.*;
 import java.io.*;
 
@@ -35,7 +36,7 @@ public class google{
 			JSONArray ja = json.getJSONObject("responseData").getJSONArray("results");
 			JSONObject j = ja.getJSONObject(0);
 			//Returns Title: URL
-			String[] ret = {j.toString(), j.getString("titleNoFormatting") + ": " + URLDecoder.decode(j.getString("url"),"UTF-8")};
+			String[] ret = {j.toString(), StringEscapeUtils.unescapeHtml4(j.getString("titleNoFormatting")) + ": " + URLDecoder.decode(j.getString("url"),"UTF-8")};
 			return ret;
 			} catch (MalformedURLException e) {
 				//Shouldn't EVER hit this.

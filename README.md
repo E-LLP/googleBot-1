@@ -13,3 +13,9 @@ Required keys:
 	server=irc.somewhere.net
 	channels=#space #seperated #list #of #channels
 	nspass=superSecureNickServPassword
+
+
+
+PircBot is released under the GPL. More info at http://www.jibble.org/pircbot.php
+
+Apache Commons is released under the Apache 2.0 License. More info at http://commons.apache.org/lang/
