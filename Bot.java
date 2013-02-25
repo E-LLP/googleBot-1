@@ -117,6 +117,18 @@ public class Bot extends PircBot{
 					}catch (Exception e){sendMessage(channel, e.toString());}
 				}
 			break;
+			case "!learned":
+				try {
+					File dir = new File("words/");
+					File[] list = dir.listFiles();
+					StringBuilder files = new StringBuilder();
+					for (File x : list){
+						files.append(x);
+					}
+					sendMessage(channel, files.toString());
+				} catch (Exception e){sendMessage(channel, e.toString());}
+
+			break;
 			default:
 				try{
 					sendMessage(channel, lookupWord(message));
