@@ -121,9 +121,15 @@ public class Bot extends PircBot{
 				try {
 					File dir = new File("words/");
 					File[] list = dir.listFiles();
+					Arrays.sort(list);
 					StringBuilder files = new StringBuilder();
 					for (File x : list){
-						files.append(x);
+						if(x.toString().contains(" ")){
+							files.append("\'" + x.toString().substring(6) + "\'");
+						} else {
+							files.append(x.toString().substring(6));
+						}
+						files.append(" ");
 					}
 					sendMessage(channel, files.toString());
 				} catch (Exception e){sendMessage(channel, e.toString());}
