@@ -233,7 +233,7 @@ public class Bot extends PircBot{
 		out.write(split[1]);
 		out.newLine();
 		out.close();
-		return "Learned " + split[0] + " as " + split[1];
+		return "Learned " + split[0] + ".";
 	}
 	public String updateWord(String word) throws Exception{
                 if (word.contains("..")) return "Nice Try";
@@ -247,6 +247,6 @@ public class Bot extends PircBot{
                 out.write(split[1]);
                 out.newLine();
                 out.close();
-                return "Learned " + split[0] + " as " + split[1];
+                return "Updated " + split[0] + ".";
 	}
 }
