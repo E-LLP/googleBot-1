@@ -96,7 +96,11 @@ public class Bot extends PircBot{
 
 				try {
 					isReachable = InetAddress.getByName(address).isReachable(timeout);
-					sendMessage(channel, address + " is online.");
+					if (isReachable){
+						sendMessage(channel, address + " is online.");
+					} else {
+						sendMessage(channel, address+ " is offline.");
+					}
 				} catch(Exception e){
 					sendMessage(channel, address+ " is offline.");
 				}
@@ -106,7 +110,7 @@ public class Bot extends PircBot{
                                 if (nick.isOp()){
 					try{
 						sendMessage(channel, learnWord(message));
-					}catch (Exception e){sendMessage(channel, e.toString());}
+					}catch (Exception e){sendMessage(channel, "Syntax: '!learn <command> as <text>'. If you did this, something bad happened.");}
 				}
 			break;
 			case "!update":
@@ -114,7 +118,7 @@ public class Bot extends PircBot{
                                 if (nick.isOp()){
 					try {
 						sendMessage(channel, updateWord(message));
-					}catch (Exception e){sendMessage(channel, e.toString());}
+					}catch (Exception e){sendMessage(channel, "Syntax: '!update <command> as <text>. If you did this, something bad happened.");}
 				}
 			break;
 			case "!learned":
