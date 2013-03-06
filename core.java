@@ -22,6 +22,7 @@ class core {
 					for (String channel : chan){
 						channels.add(channel);
 					}
+				break;
 				case "nspass":
 					nspass = temp.split("=")[1].trim();
 				break;
