@@ -42,7 +42,7 @@ public class Bot extends PircBot{
 			break;
 			case "!join":
 				joinChannel(message.split(" ")[1]);
-				channels.add(message.split(" ")[1]);
+				channels.add(message.split(" ")[1].toLowerCase());
 				doSave();
 			break;
 			case "!leave":
@@ -201,6 +201,10 @@ public class Bot extends PircBot{
 			out.println("server=" + this.getServer());
 			out.println("nspass=" + nspass);
 			out.print("channels=");
+			HashSet<String> hs = new HashSet<String>();
+			hs.addAll(channels);
+			channels.clear();
+			channels.addAll(hs);
 			for(int i=0; i<channels.size(); i++){
 				out.print(channels.get(i) + " ");
 			}
@@ -227,6 +231,7 @@ public class Bot extends PircBot{
 	}
 	public String learnWord(String word) throws Exception{
                 if (word.contains("..")) return "Nice Try";
+		if (word.contains("fuck")) return "Go fuck yourself";
 		word = word.substring(7);
 		String [] split = word.split(" as ");
 		split[0] = split[0].toLowerCase();
